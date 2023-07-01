@@ -1,0 +1,60 @@
+CREATE TABLE CUSTOMERS(
+   ID   INT              NOT NULL,
+   NAME VARCHAR (20)     NOT NULL,
+   AGE  INT              NOT NULL,
+   ADDRESS  CHAR (25) ,
+   SALARY   DECIMAL (18, 2),       
+   PRIMARY KEY (ID)
+);
+
+INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY)
+VALUES 
+(1, 'Ramesh', 32, 'Ahmedabad', 2000.00 ),
+(2, 'Khilana', 25, 'Delhi', 1500.00 ),
+(4, 'Chaitali', 25, 'Mumbai', 6500.00 ), 
+(5, 'Hardik', 27, 'Delhi', 8500.00 ), 
+(6, 'komal', 22, 'MP', 4500.00 );
+
+-- WHERE clause
+-- SELECT * FROM CUSTOMERS WHERE SALARY> 3000;
+-- SELECT * FROM CUSTOMERS WHERE ADDRESS= 'Ahmedabad';
+-- SELECT * FROM CUSTOMERS WHERE SALARY BETWEEN 2000 AND 6000;
+
+-- AND, OR, NOT
+-- SELECT * FROM CUSTOMERS WHERE ADDRESS= 'Delhi' OR ADDRESS= 'Mumbai';
+-- SELECT * FROM CUSTOMERS WHERE AGE= 25 OR AGE= 27;
+
+-- IN
+-- Bhot sare OR conditions ko handle krne k lie IN command ka use krenge
+-- SELECT * FROM CUSTOMERS WHERE AGE IN (25,27);
+
+-- NOT NULL
+-- wo wli value return krenga jo NULL hogi
+
+-- ___%___
+-- used for wildcard(jis bhi value me wo char ayega wo display hoga)
+-- % ke age or piche wle character pe depend krega
+-- SELECT * FROM CUSTOMERS WHERE NAME LIKE '%a%';
+-- SELECT * FROM CUSTOMERS WHERE NAME LIKE '_a%';
+
+-- ORDER by
+-- SELECT * FROM CUSTOMERS ORDER BY SALARY DESC;
+
+-- DISTINCT
+
+-- GROUP BY
+-- used for grouping of data 
+-- GROUP BY basically ek column pr work krega
+-- used with aggregation functions like SUM, AVG, MAX,MIN, count
+-- 'FROM CUSTOMERS GROUP BY' k bich me jo bhi coloumn denge wo same honi chie
+-- SELECT ADDRESS, COUNT(*) FROM CUSTOMERS GROUP BY ADDRESS;  
+-- AVG salary of address
+-- SELECT ADDRESS, AVG(SALARY) FROM CUSTOMERS GROUP BY ADDRESS;
+
+-- HAVING clause
+-- used for applying conditions in GROUP BY clauses
+-- SELECT ADDRESS, COUNT(ADDRESS) FROM CUSTOMERS GROUP BY ADDRESS HAVING COUNT(ADDRESS)>1;
+
+
+-- HAVING is used after GROUP BY while WHERE is used before GROUP basically
+
