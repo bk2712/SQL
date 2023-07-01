@@ -1,0 +1,64 @@
+CREATE TABLE Customer(
+    CustomerID INT PRIMARY KEY,
+    CustomerName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) UNIQUE,
+    Country VARCHAR(50) DEFAULT 'India',
+    Age int(2)
+);
+
+INSERT INTO Customer (CustomerID, CustomerName, LastName, Country, Age)
+VALUES (1, 'Shubham', 'Thakur', 'India','23'),
+       (2, 'Aman ', 'Chopra', 'Australia','21'),
+       (3, 'Naveen', 'Tulasi', 'Sri lanka','24'),
+       (4, 'Aditya', 'Arpan', 'Austria','21'),
+       (5, 'Nishant. Salchichas S.A.', 'Jain', 'Spain','22'),
+       (6, 'Jhonny', 'Depp','India','22');
+
+
+
+
+
+-- SELECT * FROM Customer;
+
+-- ALTER 
+-- used to create new column
+-- ALTER TABLE Customer ADD dept VARCHAR(255) default 'hello';
+-- SELECT * FROM Customer;
+
+-- MODIFY 
+-- used to modify the table after ALTER
+
+-- CHANGE
+-- used to rename column
+-- ALTER TABLE Customer ADD dept VARCHAR(255) default 'hello';
+-- ALTER TABLE Customer CHANGE dept deptName VARCHAR(255) default 'hello';
+-- SELECT * FROM Customer;
+
+-- DROP
+-- used to drop column
+
+-- RENAME
+-- to rename the table rename
+-- ALTER TABLE Customer RENAME TO Cust;
+-- DESC cust;
+
+
+-- CONSTRAINTS
+
+-- 1. FORIEGN KEY
+
+-- 2. UNIQUE
+
+-- 3. CHECK
+-- to check consistency
+-- syntx => CONSTRAINT acc_balance CHECK(balance>1000) --agr koi balance <1000 hoga ye error de dega
+
+-- 4. default
+-- agr value insert bhi nhi kri tbh bhi default 0 set ho jaega
+-- syntax => balance int NOT NULL DEFAULT 0;
+
+-- 5. PRIMARY KEY
+
+
+-- ALTER 
+-- used to create new column
