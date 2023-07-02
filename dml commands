@@ -1,0 +1,32 @@
+CREATE TABLE Customer(
+    CustomerID INT PRIMARY KEY,
+    CustomerName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) UNIQUE,
+    Country VARCHAR(50) DEFAULT 'India',
+    Age int(2)
+);
+
+INSERT INTO Customer (CustomerID, CustomerName, LastName, Country, Age)
+VALUES (1, 'Shubham', 'Thakur', 'India','23'),
+       (2, 'Aman ', 'Chopra', 'Australia','21'),
+       (3, 'Naveen', 'Tulasi', 'Sri lanka','24'),
+       (4, 'Aditya', 'Arpan', 'Austria','21'),
+       (5, 'Nishant. Salchichas S.A.', 'Jain', 'Spain','22'),
+       (6, 'Jhonny', 'Depp','India','22');
+
+-- SELECT * FROM Customer;
+
+-- UPDATE
+-- UPDATE Customer SET LastName= 'Kaushik' WHERE CustomerID= 2;
+-- SELECT * FROM Customer;
+
+-- DELETE
+-- 1. on delete cascade
+-- 2. on delete null 
+-- agr parent se koi value delete ho jati h to reference table se bhi value delete ya null ho jaegi using 1 and 2 methods
+-- DELETE FROM Customer;
+-- SELECT * FROM Customer;
+
+-- REPLACE
+REPLACE INTO Customer SET CustomerID= 5, CustomerName= 'Bhavesh', LastName='Kaushik', Country='Ind', Age=21;
+SELECT * FROM Customer;
