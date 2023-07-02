@@ -1,0 +1,70 @@
+CREATE TABLE Project(
+proj_id INT PRIMARY KEY,
+Emp_id INT,
+Name VARCHAR(255),
+Client_id INT
+);
+
+CREATE TABLE Employee(
+Emp_id INT PRIMARY KEY,
+FName VARCHAR(255),
+LName VARCHAR(255),
+Age INT,
+City VARCHAR(255)
+);
+
+CREATE TABLE Client(
+Client_id INT PRIMARY KEY,
+FName VARCHAR(255),
+LName VARCHAR(255),
+Age INT,
+Email VARCHAR(255),
+City VARCHAR(255),
+Emp_id INT
+);
+
+INSERT INTO Project (proj_id, Emp_id, Name, Client_id) VALUES 
+(001,1,'A', 3),
+(002,2,'B',1),
+(003,3,'C',5),
+(008,6,'A',2);
+
+INSERT INTO Employee(Emp_id, FName, LName, Age, City) VALUES
+(1,'Aman', 'Proto', 32, 'Delhi'),
+(2, 'Yagya', 'LO', 23, 'Delhi'),
+(3, 'Pk', 'Pandey', 21, 'Jaipur'),
+(5, 'Kuashl','Aprajit', 30, 'Noida');
+
+INSERT INTO Client(Client_id, FName, LName, Age, City, Emp_id) VALUES
+(1,'Aman', 'Proto', 32, 'Delhi', 3),
+(2, 'Yagya', 'LO', 23, 'Delhi', 5),
+(3, 'Pk', 'Pandey', 21, 'Jaipur', 1),
+(5,'Agni', 'Chal', 29,'Hyderabad',3);
+
+-- SELECT * FROM Project;
+-- SELECT * FROM Employee;
+-- SELECT * FROM Client;
+
+
+-- Q1. enlist all  the emp id's, names along with the project allocated to them
+
+-- Ans
+
+-- SELECT e.Emp_id,e.FName,p.proj_id,p.Name FROM Employee AS e INNER JOIN Project AS p ON e.Emp_id=p.Emp_id;
+-- another method of writing join without join keyword
+-- SELECT e.Emp_id,e.FName,p.proj_id,p.Name FROM Employee AS e, Project AS p WHERE e.Emp_id=p.Emp_id;
+
+-- Q2. fetch out employee id and their cities who have been working from jaipur with the clients name 
+--     working in Hyderabad
+
+-- Ans
+
+-- SELECT e.Emp_id,e.Age,c.FName,c.Client_id FROM Employee AS e INNER JOIN 
+-- Client as c ON e.Emp_id=c.Emp_id where e.City= 'Jaipur' AND c.City= 'Hyderabad';
+
+
+-- Q3. fetch out all the project allocated to each Employee
+
+-- Ans 
+
+-- SELECT p.*, e.* FROM Project AS p LEFT JOIN Employee AS e ON p.Emp_id= e.Emp_id;
